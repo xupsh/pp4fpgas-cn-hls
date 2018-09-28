@@ -50,6 +50,7 @@ def copy_notebooks():
     if os.path.isdir(board_folder):
         dst_folder = os.path.join(notebooks_dir, 'pp4fpgas')
         if os.path.exists(dst_folder):
+            copy_tree(dst_folder, os.path.join("backup", dst_folder))
             shutil.rmtree(dst_folder)
         copy_tree(os.path.join(board_folder, 'notebooks'), dst_folder)
 
@@ -60,7 +61,7 @@ copy_notebooks()
 
 
 setup(
-    name="pynq_pp4fpgas",
+    name="pynq-pp4fpgas",
     version='1.0',
     install_requires=[
           'pynq>=2.1'

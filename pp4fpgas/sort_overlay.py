@@ -1,7 +1,7 @@
 from pynq import Overlay
 
 
-__author__ = "Chenglong Hu"
+__author__ = "sonnyhcl"
 
 class SortOverlay(Overlay):
 	

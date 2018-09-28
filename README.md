@@ -5,7 +5,7 @@ HLS Project for pp4fpgas-cn
 - Install using `pip`
 
 ```console
-xilinx@pynq:~ sudo pip3 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
+sudo pip3 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 ```
 
 - Open your browser with `<pynq_ip>:9090` and type in xilinx as password.
