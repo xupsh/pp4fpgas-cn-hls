@@ -2,16 +2,15 @@
 HLS Project for pp4fpgas-cn
 
 ## Get Started
-- Clone this repo on PYNQ board:
-- Run the setup bash script to setup
+- Install using `pip`
+
+```console
+xilinx@pynq:~ sudo pip3 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
+```
+
 - Open your browser with `<pynq_ip>:9090` and type in xilinx as password.
 - Get started using `00-Tutorial` notebook.
 
-```console
-xilinx@pynq:~ git clone https://github.com/xupsh/pp4fpgas-cn-hls.git
-xilinx@pynq:~ cd pp4fpgas-cn-hls
-xilinx@pynq:~/pp4fpgas-cn-hls bash setup.sh
-```
 > tips: <pynq_ip> is the ip of your pynq.
 
 ## Repository Organisation

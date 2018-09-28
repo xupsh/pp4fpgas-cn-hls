@@ -60,7 +60,7 @@ copy_notebooks()
 
 
 setup(
-    name="pynq-pp4fpgas",
+    name="pynq_pp4fpgas",
     version='1.0',
     install_requires=[
           'pynq>=2.1'
