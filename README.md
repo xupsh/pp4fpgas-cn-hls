@@ -2,6 +2,8 @@
 HLS Project for pp4fpgas-cn
 
 ## Get Started
+> Tested on PYNQ-Z1/Z2 v2.3
+
 - Install using `pip`
 
 ```console
@@ -13,39 +15,48 @@ sudo pip3 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 
 > tips: <pynq_ip> is the ip of your pynq.
 
-## Repository Organisation
+## Repository Tree
 ```
 .
+├── boards
+│   ├── Pynq-Z1
+│   └── Pynq-Z2
+├── hw
+│   ├── build_ip.tcl
+│   ├── cordic
+│   ├── dft
+│   ├── histogram
+│   ├── ip
+│   ├── matrixm
+│   ├── sort
+│   └── sum
 ├── LICENSE
-├── notebook
-│   ├── 00-Tutorial.ipynb
-│   ├── 02-FIR.ipynb
-│   ├── 04-DFT.ipynb
-│   ├── 06-SMVM.ipynb
-│   ├── 07-MATRIXM.ipynb
-│   ├── 08-HISTOGRAM.ipynb
-│   ├── 08-SUM.ipynb
-│   ├── 09-VideoSystem.ipynb
-│   ├── 10-SORT.ipynb
-│   ├── 11-HUFFMAN.ipynb
-│   ├── img
-│   └── src
-│       ├── dft
-│       ├── fir
-│       ├── histogram
-│       ├── huffman
-│       ├── matrixm
-│       ├── sort
-│       ├── spmv
-│       ├── sum
-│       └── vs
+├── pp4fpgas
+│   ├── cordic_overlay.py
+│   ├── dft_overlay.py
+│   ├── fir_overlay.py
+│   ├── histogram_overlay.py
+│   ├── __init__.py
+│   ├── matrixm_overlay.py
+│   ├── sort_overlay.py
+│   ├── spmv_overlay.py
+│   ├── sum_overlay.py
+│   └── vs_overlay.py
 ├── README.md
-└── setup.sh
+└── setup.py
 ```
 
 ## Hardware Design Rebuilt
-`TODO`
+> version required: vivado 2017.4
+
+- Open your vivado gui and find `tcl console`
+- `cd` the path you git clone
+- `cd` hw directory
+- `source build_ip.tcl`
+
+![tcl console](./boards/Pynq-Z1/notebooks/data/tclconsole.png)
 
 ## Based on
 - PYNQ : [https://github.com/Xilinx/PYNQ](https://github.com/Xilinx/PYNQ)
 - PP4FPGAS-CN : [https://github.com/xupsh/pp4fpgas-cn](https://github.com/xupsh/pp4fpgas-cn)
+

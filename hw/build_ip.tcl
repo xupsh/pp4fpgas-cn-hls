@@ -2,7 +2,7 @@
 set current_dir [pwd]
 cd ip
 # get list of IP from folder names
-set ip {sort}
+set ip {cordic dft fir histogram matrixm sort spmv sum vs}
 # Check and build each IP
 foreach item $ip {
    if {[catch { glob -directory ${item}/solution1/impl/ip/ *.zip} zip_file]} {
