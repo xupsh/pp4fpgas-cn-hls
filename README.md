@@ -25,17 +25,24 @@ sudo pip3 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 │   ├── build_ip.tcl
 │   ├── cordic
 │   ├── dft
+│   ├── fft
+│   ├── fir
 │   ├── histogram
+│   ├── huffman
 │   ├── ip
 │   ├── matrixm
 │   ├── sort
-│   └── sum
+│   ├── spmv
+│   ├── sum
+│   └── vs
 ├── LICENSE
 ├── pp4fpgas
 │   ├── cordic_overlay.py
 │   ├── dft_overlay.py
+│   ├── fft_overlay.py
 │   ├── fir_overlay.py
 │   ├── histogram_overlay.py
+│   ├── huffman_overlay.py
 │   ├── __init__.py
 │   ├── matrixm_overlay.py
 │   ├── sort_overlay.py
