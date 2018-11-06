@@ -1,54 +1,43 @@
 # pp4fpgas-cn-hls
-HLS Project for pp4fpgas-cn
+HLS Project for pp4fpgas-cn running on Pynq-Z1/Z2 board
 
 ## Get Started
-> Tested on PYNQ-Z1/Z2 v2.3
 
 - Install using `pip`
+> pynq >= v2.3
 
 ```console
 sudo pip3 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 ```
+> pynq <= v2.2
+
+```console
+sudo pip3.6 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
+```
 
 - Open your browser with `<pynq_ip>:9090` and type in xilinx as password.
-- Get started using `00-Tutorial` notebook.
+- Get started using `pp4fpgas` notebook.
 
-> tips: <pynq_ip> is the ip of your pynq.
+> tips: <pynq_ip> is the ip of your pynq. usually it's `192.168.2.99`
 
 ## Repository Tree
 ```
 .
 ├── boards
-│   ├── Pynq-Z1
-│   └── Pynq-Z2
+│   └── Pynq-Z1/Pynq-Z2
+│   	├── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
+│   	└── notebooks
 ├── hw
 │   ├── build_ip.tcl
-│   ├── cordic
-│   ├── dft
-│   ├── fft
-│   ├── fir
-│   ├── histogram
-│   ├── huffman
-│   ├── ip
-│   ├── matrixm
-│   ├── sort
-│   ├── spmv
-│   ├── sum
-│   └── vs
-├── LICENSE
+│   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
+│   	├── *_wrapper.v
+│   	└── build_*.tcl
 ├── pp4fpgas
-│   ├── cordic_overlay.py
-│   ├── dft_overlay.py
-│   ├── fft_overlay.py
-│   ├── fir_overlay.py
-│   ├── histogram_overlay.py
-│   ├── huffman_overlay.py
 │   ├── __init__.py
-│   ├── matrixm_overlay.py
-│   ├── sort_overlay.py
-│   ├── spmv_overlay.py
-│   ├── sum_overlay.py
-│   └── vs_overlay.py
+│   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
+│   	├── __init__.py
+│   	└── *_overlay.py
+├── LICENSE
 ├── README.md
 └── setup.py
 ```
@@ -66,4 +55,3 @@ sudo pip3 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 ## Based on
 - PYNQ : [https://github.com/Xilinx/PYNQ](https://github.com/Xilinx/PYNQ)
 - PP4FPGAS-CN : [https://github.com/xupsh/pp4fpgas-cn](https://github.com/xupsh/pp4fpgas-cn)
-
