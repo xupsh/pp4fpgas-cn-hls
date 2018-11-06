@@ -3,9 +3,9 @@ from pynq import Overlay
 
 __author__ = "sonnyhcl"
 
-class CordicOverlay(Overlay):
+class SumOverlay(Overlay):
 	
-    def __init__(self, bitfile, **kwargs):
+    def __init__(self, bitfile="sum.bit", **kwargs):
         super().__init__(bitfile, **kwargs)
         if self.is_loaded():
         	print("load ready")
