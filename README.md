@@ -26,7 +26,7 @@ sudo pip3.6 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 ├── boards
 │   └── Pynq-Z1/Pynq-Z2
 │   	├── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
-│   	└── notebooks
+│   	└── notebooks/
 ├── hw
 │   ├── build_ip.tcl
 │   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
