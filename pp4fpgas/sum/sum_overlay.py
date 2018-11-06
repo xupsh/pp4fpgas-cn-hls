@@ -1,11 +1,26 @@
+import os
 from pynq import Overlay
-
 
 __author__ = "sonnyhcl"
 
+REAL_PATH = os.path.dirname(os.path.realpath(__file__))
+
 class SumOverlay(Overlay):
-	
-    def __init__(self, bitfile="sum.bit", **kwargs):
-        super().__init__(bitfile, **kwargs)
+    bitfile_name = ""
+
+    def __init__(self, bitfile="", **kwargs):
+        bitfile_abs = os.path.abspath(bitfile)
+        bitfile_overlay_abs = os.path.join(REAL_PATH, bitfile)
+        bitfile_default = os.path.join(REAL_PATH, "sum.bit")
+
+        if os.path.isfile(bitfile):
+            self.bitfile_name = bitfile_abs
+        elif os.path.isfile(bitfile_overlay_abs):
+            self.bitfile_name = bitfile_overlay_abs
+        else:
+            self.bitfile_name = bitfile_default
+
+        super().__init__(self.bitfile_name, **kwargs)
+
         if self.is_loaded():
-        	print("load ready")
+                print(self.bitfile_name, "load ready")
