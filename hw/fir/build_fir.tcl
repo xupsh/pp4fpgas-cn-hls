@@ -40,7 +40,7 @@ if { [info exists ::origin_dir_loc] } {
 }
 
 # Set the project name
-set project_name "FIR"
+set project_name "fir_overlay"
 
 # Use project name variable, if specified in the tcl shell
 if { [info exists ::user_project_name] } {
@@ -131,7 +131,7 @@ update_ip_catalog -rebuild
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- "[file normalize "$fir_wrapper.v"]"\
+ "[file normalize "fir_wrapper.v"]"\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
