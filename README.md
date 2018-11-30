@@ -44,6 +44,8 @@ sudo pip3.6 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 
 ## Hardware Design Rebuilt
 > version required: vivado 2017.4
+> make sure you already have these board files in your vivado
+> https://github.com/xupsh/pynq-supported-board-file
 
 - Open your vivado gui and find `tcl console`
 - `cd` the path you git clone
