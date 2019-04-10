@@ -44,28 +44,24 @@
 //}
 
 void sum(int in[SIZE], int out[SIZE]) {
-#pragma HLS INTERFACE ap_ctrl_none port=return
-#pragma HLS INTERFACE axis register both port=in
-#pragma HLS INTERFACE axis register both port=out
+    #pragma HLS INTERFACE ap_ctrl_none port=return
+    #pragma HLS INTERFACE axis register both port=in
+    #pragma HLS INTERFACE axis register both port=out
 	int tempout[SIZE];
 	int tempin[SIZE];
- for(int i=0; i < SIZE; i++) {
+    for(int i=0; i < SIZE; i++) {
 
-	tempin[i] = in[i];
+	    tempin[i] = in[i];
+    }
+    tempout[0] = tempin[0];
 
-  }
-  tempout[0] = tempin[0];
+    for(int i=1; i < SIZE; i++) {
 
-  for(int i=1; i < SIZE; i++) {
+	    tempout[i] = tempout[i-1] + tempin[i];
+    }
 
-	  tempout[i] = tempout[i-1] + tempin[i];
+    for(int i=0; i < SIZE; i++) {
 
-  }
-
-  for(int i=0; i < SIZE; i++) {
-
- 	out[i] = tempout[i];
-
-   }
-
+ 	    out[i] = tempout[i];
+    }
 }
