@@ -14,10 +14,10 @@ typedef ap_axiu<32,1,1,1> data_t;
 typedef int acc_t;
 
 void fir(data_t *y, int x , data_t *input) {
-#pragma HLS INTERFACE axis register both port=input
-#pragma HLS INTERFACE axis register both port=y
-#pragma HLS INTERFACE s_axilite port=x bundle=x_axilite
-#pragma HLS INTERFACE ap_ctrl_none port=return
+    #pragma HLS INTERFACE axis register both port=input
+    #pragma HLS INTERFACE axis register both port=y
+    #pragma HLS INTERFACE s_axilite port=x bundle=x_axilite
+    #pragma HLS INTERFACE ap_ctrl_none port=return
 
 	coef_t c[N] = {1, 0, -1, 0, 2, 3, 2, 0, -1, 0, 1};
 
