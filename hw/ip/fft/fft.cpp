@@ -44,19 +44,19 @@ void bit_reverse(DTYPE read_real[N], DTYPE read_imag[N], DTYPE stage_real[N], DT
 
 void fft_stage(int stage, DTYPE read_real[N], DTYPE read_imag[N], DTYPE stage_real[N], DTYPE stage_imag[N]) 
 {
-  int FFTpts = 1 << stage;    // DFT = 2^stage = points in sub DFT
-  int BF = FFTpts / 2;     // Butterfly WIDTHS in sub-DFT
-  int step = N >> stage;  // Perform butterflies for j-th stage
+    int FFTpts = 1 << stage;    // DFT = 2^stage = points in sub DFT
+    int BF = FFTpts / 2;     // Butterfly WIDTHS in sub-DFT
+    int step = N >> stage;  // Perform butterflies for j-th stage
 
-butterfly_loop:
-	for (int j = 0; j < BF; j++) 
-	{
-		// Compute butterflies that use same W**k
-dft_loop:
+    butterfly_loop:
+	    for (int j = 0; j < BF; j++) 
+	    {
+		    // Compute butterflies that use same W**k
+    dft_loop:
 		for(int t = 0; t < step; t++) 
 		{
 			int i = j + t*FFTpts;
-#pragma HLS pipeline
+            #pragma HLS pipeline
 			int k = j * step;
 			DTYPE w = -(2.0 * 3.14159  / N) * j;
 			DTYPE c = hls :: cosf (w);
@@ -74,11 +74,11 @@ dft_loop:
 
 void fft(DTYPE sample_real[N], DTYPE sample_imag[N], DTYPE out_real[N], DTYPE out_imag[N])
 {
-#pragma HLS INTERFACE axis register both port=sample_imag
-#pragma HLS INTERFACE axis register both port=sample_real
-#pragma HLS INTERFACE axis register both port=out_real
-#pragma HLS INTERFACE axis register both port=out_imag
-#pragma HLS INTERFACE ap_ctrl_none port=return
+    #pragma HLS INTERFACE axis register both port=sample_imag
+    #pragma HLS INTERFACE axis register both port=sample_real
+    #pragma HLS INTERFACE axis register both port=out_real
+    #pragma HLS INTERFACE axis register both port=out_imag
+    #pragma HLS INTERFACE ap_ctrl_none port=return
 
 	DTYPE temp_real[N];
 	DTYPE temp_imag[N];
@@ -86,9 +86,9 @@ void fft(DTYPE sample_real[N], DTYPE sample_imag[N], DTYPE out_real[N], DTYPE ou
 	DTYPE read_imag[N];
 	
 	DTYPE stage_real[M][N];
-#pragma HLS array_partition variable=stage_real dim=1 complete
+    #pragma HLS array_partition variable=stage_real dim=1 complete
 	DTYPE stage_imag[M][N];
-#pragma HLS array_partition variable=stage_imag dim=1 complete
+    #pragma HLS array_partition variable=stage_imag dim=1 complete
 
 read_loop:
 	for (int i = 0; i < N; i++)
@@ -102,7 +102,7 @@ read_loop:
 stage_loop:
 	for (int stage = 1; stage < M; stage++) 
 	{ 
-#pragma HLS unroll
+        #pragma HLS unroll
 		fft_stage(stage, stage_real[stage-1], stage_imag[stage-1], stage_real[stage], stage_imag[stage]);
 	}
 	fft_stage(M, stage_real[M-1], stage_imag[M-1], temp_real, temp_imag);
