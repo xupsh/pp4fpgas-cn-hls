@@ -2,13 +2,6 @@
 #include <iostream>
 #include "assert.h"
 
-
-
-
-
-
-
-
 void create_tree (
 
     /* input */ Symbol in[INPUT_SYMBOL_SIZE],
@@ -27,19 +20,15 @@ void create_tree (
 
     ap_uint<SYMBOL_BITS> in_count = 0;    // Number of inputs consumed.
 
-
-
     assert(num_symbols > 0);
 
     assert(num_symbols <= INPUT_SYMBOL_SIZE);
 
     for(int i = 0; i < (num_symbols-1); i++) {
 
-#pragma HLS PIPELINE II=5
+        #pragma HLS PIPELINE II=5
 
         Frequency node_freq = 0;
-
-
 
         // There are two cases.
 
@@ -79,8 +68,6 @@ void create_tree (
 
         }
 
-
-
         assert(in_count < num_symbols || tree_count < i);
 
         intermediate_freq = frequency[tree_count];
@@ -108,23 +95,15 @@ void create_tree (
             parent[tree_count] = i;
 
             tree_count++;
-
         }
 
         // Verify that nodes in the tree are sorted by frequency
 
         assert(i == 0 || frequency[i] >= frequency[i-1]);
-
     }
 
-
-
     parent[tree_count] = 0; //Set parent of last node (root) to 0
-
 }
-
-
-
 
 //functions
 
@@ -138,13 +117,13 @@ void filter(
 
             /* output */ int *n) {
 
-#pragma HLS INLINE off
+    #pragma HLS INLINE off
 
     ap_uint<SYMBOL_BITS> j = 0;
 
     for(int i = 0; i < INPUT_SYMBOL_SIZE; i++) {
 
-#pragma HLS pipeline II=1
+        #pragma HLS pipeline II=1
 
         if(in[i].frequency != 0) {
 
@@ -153,15 +132,11 @@ void filter(
             out[j].value = in[i].value;
 
             j++;
-
         }
-
     }
-
+	
     *n = j;
-
 }
-
 
 void sort(
 
@@ -175,31 +150,26 @@ void sort(
 
     ap_uint<SYMBOL_BITS> digit_histogram[RADIX], digit_location[RADIX];
 
-#pragma HLS ARRAY_PARTITION variable=digit_location complete dim=1
+    #pragma HLS ARRAY_PARTITION variable=digit_location complete dim=1
 
-#pragma HLS ARRAY_PARTITION variable=digit_histogram complete dim=1
+    #pragma HLS ARRAY_PARTITION variable=digit_histogram complete dim=1
 
     Digit current_digit[INPUT_SYMBOL_SIZE];
-
-
 
     assert(num_symbols >= 0);
 
     assert(num_symbols <= INPUT_SYMBOL_SIZE);
 
- copy_in_to_sorting:
+copy_in_to_sorting:
 
     for(int j = 0; j < num_symbols; j++) {
 
-#pragma HLS PIPELINE II=1
+        #pragma HLS PIPELINE II=1
 
         sorting[j] = in[j];
-
     }
 
-
-
- radix_sort:
+radix_sort:
 
     for(int shift = 0; shift < 32; shift += BITS_PER_LOOP) {
 
@@ -207,19 +177,16 @@ void sort(
 
         for(int i = 0; i < RADIX; i++) {
 
-#pragma HLS pipeline II=1
+            #pragma HLS pipeline II=1
 
             digit_histogram[i] = 0;
-
         }
-
-
 
     compute_histogram:
 
         for(int j = 0; j < num_symbols; j++) {
 
-#pragma HLS PIPELINE II=1
+            #pragma HLS PIPELINE II=1
 
             Digit digit = (sorting[j].frequency >> shift) & (RADIX - 1); // Extrract a digit
 
@@ -228,10 +195,7 @@ void sort(
             digit_histogram[digit]++;
 
             previous_sorting[j] = sorting[j]; // Save the current sorted order of symbols
-
         }
-
-
 
         digit_location[0] = 0;
 
@@ -239,17 +203,15 @@ void sort(
 
         for(int i = 1; i < RADIX; i++)
 
-#pragma HLS PIPELINE II=1
+            #pragma HLS PIPELINE II=1
 
             digit_location[i] = digit_location[i-1] + digit_histogram[i-1];
-
-
 
     re_sort:
 
         for(int j = 0; j < num_symbols; j++) {
 
-#pragma HLS PIPELINE II=1
+            #pragma HLS PIPELINE II=1
 
             Digit digit = current_digit[j];
 
@@ -258,13 +220,9 @@ void sort(
             out[digit_location[digit]] = previous_sorting[j]; // Also copy to output
 
             digit_location[digit]++; // Update digit_location
-
         }
-
     }
-
 }
-
 
 void compute_bit_length (
 
@@ -293,20 +251,15 @@ void compute_bit_length (
         #pragma HLS pipeline II=1
 
         internal_length_histogram[i] = 0;
-
     }
 
-
-
     child_depth[num_symbols-2] = 1; // Depth of the root node is 1.
-
-
 
 traverse_tree:
 
     for(int i = num_symbols-3; i >= 0; i--) {
 
-#pragma HLS pipeline II=3
+        #pragma HLS pipeline II=3
 
         ap_uint<TREE_DEPTH_BITS> length = child_depth[parent[i]] + 1;
 
@@ -321,13 +274,11 @@ traverse_tree:
                 // Both the children of the original node were symbols
 
                 children = 2;
-
             } else {
 
                 // One child of the original node was a symbol
 
                 children = 1;
-
             }
 
             ap_uint<SYMBOL_BITS> count = internal_length_histogram[length];
@@ -337,13 +288,9 @@ traverse_tree:
             internal_length_histogram[length] = count;
 
             length_histogram[length] = count;
-
         }
-
     }
-
 }
-
 
 void truncate_tree(
 
@@ -362,10 +309,7 @@ void truncate_tree(
     for(int i = 0; i < TREE_DEPTH; i++) {
 
         output_length_histogram1[i] = input_length_histogram[i];
-
     }
-
-
 
     ap_uint<SYMBOL_BITS> j = MAX_CODEWORD_LENGTH;
 
@@ -379,7 +323,7 @@ void truncate_tree(
 
         while(output_length_histogram1[i] != 0) {
 
-#pragma HLS LOOP_TRIPCOUNT min=3 max=3 avg=3
+            #pragma HLS LOOP_TRIPCOUNT min=3 max=3 avg=3
 
             if (j == MAX_CODEWORD_LENGTH) {
 
@@ -387,15 +331,13 @@ void truncate_tree(
 
                 do {
 
-#pragma HLS LOOP_TRIPCOUNT min=1 max=1 avg=1
+                    #pragma HLS LOOP_TRIPCOUNT min=1 max=1 avg=1
 
                     j--;
 
                 } while(output_length_histogram1[j] == 0);
 
             }
-
-
 
             // Move leaf with depth i to depth j+1.
 
@@ -407,25 +349,19 @@ void truncate_tree(
 
             output_length_histogram1[i] -= 2; // Two leaf nodes have been lost from level i.
 
-
-
             // now deepest leaf with codeword length < target length
 
             // is at level (j+1) unless j+1 == target length
 
             j++;
-
         }
-
     }
-
-
 
     // Copy the output to meet dataflow requirements and check the validity
 
     unsigned int limit = 1;
 
- copy_output:
+copy_output:
 
     for(int i = 0; i < TREE_DEPTH; i++) {
 
@@ -436,11 +372,8 @@ void truncate_tree(
         assert(output_length_histogram1[i] <= limit);
 
         limit *= 2;
-
     }
-
 }
-
 
 void canonize_tree(
 
@@ -454,29 +387,22 @@ void canonize_tree(
 
     assert(num_symbols <= INPUT_SYMBOL_SIZE);
 
-
-
- init_bits:
+init_bits:
 
     for(int i = 0; i < INPUT_SYMBOL_SIZE; i++) {
 
         symbol_bits[i] = 0;
-
     }
-
-
 
     ap_uint<SYMBOL_BITS> length = TREE_DEPTH;
 
     ap_uint<SYMBOL_BITS> count = 0;
 
-
-
     // Iterate across the symbols from lowest frequency to highest
 
     // Assign them largest bit length to smallest
 
- process_symbols:
+process_symbols:
 
     for(int k = 0; k < num_symbols; k++) {
 
@@ -486,26 +412,21 @@ void canonize_tree(
 
             do {
 
-#pragma HLS LOOP_TRIPCOUNT min=1 avg=1 max=2
+                #pragma HLS LOOP_TRIPCOUNT min=1 avg=1 max=2
 
                 length--;
 
                 // n is the number of symbols with encoded length i
 
                 count = codeword_length_histogram[length];
-
             }
-
             while (count == 0);
-
         }
 
         symbol_bits[sorted[k].value] = length; //assign symbol k to have length bits
 
         count--; //keep assigning i bits until we have counted off n symbols
-
     }
-
 }
 void create_codeword(
 
@@ -519,67 +440,57 @@ void create_codeword(
 
     Codeword first_codeword[MAX_CODEWORD_LENGTH];
 
-
-
     // Computes the initial codeword value for a symbol with bit length i
 
     first_codeword[0] = 0;
 
- first_codewords:
+first_codewords:
 
     for(int i = 1; i < MAX_CODEWORD_LENGTH; i++) {
 
-#pragma HLS PIPELINE II=1
+        #pragma HLS PIPELINE II=1
 
         first_codeword[i] = (first_codeword[i-1] + codeword_length_histogram[i-1]) << 1;
 
         Codeword c = first_codeword[i];
 
         //        std::cout << c.to_string(2) << " with length " << i << "\n";
-
     }
 
+assign_codewords:
 
+    for (int i = 0; i < INPUT_SYMBOL_SIZE; ++i) {
 
- assign_codewords:
+        #pragma HLS PIPELINE II=5
 
-  for (int i = 0; i < INPUT_SYMBOL_SIZE; ++i) {
+        CodewordLength length = symbol_bits[i];
 
-#pragma HLS PIPELINE II=5
+        //if symbol has 0 bits, it doesn't need to be encoded
 
-      CodewordLength length = symbol_bits[i];
+    make_codeword:
 
-      //if symbol has 0 bits, it doesn't need to be encoded
+        if(length != 0) {
 
-  make_codeword:
+            //          std::cout << first_codeword[length].to_string(2) << "\n";
 
-      if(length != 0) {
+            Codeword out_reversed = first_codeword[length];
 
-          //          std::cout << first_codeword[length].to_string(2) << "\n";
+            out_reversed.reverse();
 
-          Codeword out_reversed = first_codeword[length];
+            out_reversed = out_reversed >> (MAX_CODEWORD_LENGTH - length);
 
-          out_reversed.reverse();
+            // std::cout << out_reversed.to_string(2) << "\n";
 
-          out_reversed = out_reversed >> (MAX_CODEWORD_LENGTH - length);
+            encoding[i] = (out_reversed << CODEWORD_LENGTH_BITS) + length;
 
-          // std::cout << out_reversed.to_string(2) << "\n";
+            first_codeword[length]++;
 
-          encoding[i] = (out_reversed << CODEWORD_LENGTH_BITS) + length;
+        } else {
 
-          first_codeword[length]++;
-
-      } else {
-
-          encoding[i] = 0;
-
-      }
-
-  }
-
+            encoding[i] = 0;
+        }
+    }
 }
-
-
 
 void huffman(
 
@@ -588,14 +499,10 @@ void huffman(
     /* output */ PackedCodewordAndLength encoding[INPUT_SYMBOL_SIZE],
 
     /* output */ int *num_nonzero_symbols) {
-#pragma HLS INTERFACE axis register both port=num_nonzero_symbols
-#pragma HLS INTERFACE axis register both port=encoding
-#pragma HLS INTERFACE axis register both port=symbol_histogram
-#pragma HLS INTERFACE ap_ctrl_none port=return
-
-
-
-
+    #pragma HLS INTERFACE axis register both port=num_nonzero_symbols
+    #pragma HLS INTERFACE axis register both port=encoding
+    #pragma HLS INTERFACE axis register both port=symbol_histogram
+    #pragma HLS INTERFACE ap_ctrl_none port=return
 
     Symbol filtered[INPUT_SYMBOL_SIZE];
 
@@ -613,13 +520,9 @@ void huffman(
 
     int n;
 
-
-
     filter(symbol_histogram, filtered, &n);
 
     sort(filtered, n, sorted);
-
-
 
     ap_uint<SYMBOL_BITS> length_histogram[TREE_DEPTH];
 
@@ -629,11 +532,9 @@ void huffman(
 
     CodewordLength symbol_bits[INPUT_SYMBOL_SIZE];
 
-
-
     int previous_frequency = -1;
 
- copy_sorted:
+copy_sorted:
 
     for(int i = 0; i < n; i++) {
 
@@ -647,18 +548,12 @@ void huffman(
 
          std::cout << sorted[i].value << " " << sorted[i].frequency << "\n";
 
-
         previous_frequency = sorted[i].frequency;
-
     }
-
-
 
     create_tree(sorted_copy1, n, parent, left, right);
 
     compute_bit_length(parent, left, right, n, length_histogram);
-
-
 
 #ifndef __SYNTHESIS__
 
@@ -666,7 +561,7 @@ void huffman(
 
     int codewords_in_tree = 0;
 
- merge_bit_length:
+merge_bit_length:
 
     for(int i = 0; i < TREE_DEPTH; i++) {
 
@@ -677,21 +572,15 @@ void huffman(
             std::cout << length_histogram[i] << " codewords with length " << i << "\n";
 
         codewords_in_tree += length_histogram[i];
-
     }
 
 #endif
 
-
-
-        truncate_tree(length_histogram, truncated_length_histogram1, truncated_length_histogram2);
+    truncate_tree(length_histogram, truncated_length_histogram1, truncated_length_histogram2);
 
     canonize_tree(sorted_copy2, n, truncated_length_histogram1, symbol_bits);
 
     create_codeword(symbol_bits, truncated_length_histogram2, encoding);
 
-
-
     *num_nonzero_symbols = n;
-
 }

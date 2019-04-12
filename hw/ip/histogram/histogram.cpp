@@ -2,8 +2,6 @@
 
 #define VALUE_SIZE 256
 
-
-
 #include <assert.h>
 #include "ap_int.h"
 #include "ap_fixed.h"
@@ -11,14 +9,10 @@
 
 typedef ap_axiu<32,1,1,1> data_t;
 
-
-
 void histogram(data_t* in, data_t* hist) {
-
-
-#pragma HLS INTERFACE ap_ctrl_none port=return
-#pragma HLS INTERFACE axis register both port=in
-#pragma HLS INTERFACE axis register both port=hist
+    #pragma HLS INTERFACE ap_ctrl_none port=return
+    #pragma HLS INTERFACE axis register both port=in
+    #pragma HLS INTERFACE axis register both port=hist
 
 	int tempI[INPUT_SIZE];
 	int tempV[VALUE_SIZE];
@@ -62,22 +56,21 @@ void histogram(data_t* in, data_t* hist) {
 //        old = val;
 //
 //    }
- for(int j = 0; j < VALUE_SIZE; j++){
-	 tempr = in->data;
-	 current = tempV[j];
-	 hist->data = current;
-	 hist->keep = in->keep;
+    for(int j = 0; j < VALUE_SIZE; j++){
+	    tempr = in->data;
+	    current = tempV[j];
+	    hist->data = current;
+	    hist->keep = in->keep;
 
-	 hist->dest = in->dest;
+	    hist->dest = in->dest;
 
-	 hist->id = in->id;
+	    hist->id = in->id;
 
 
-	 hist->last = in->last;
+	    hist->last = in->last;
 
-	 hist->strb = in->strb;
+	    hist->strb = in->strb;
 
-	 hist->user = in->user;
- }
-
+	    hist->user = in->user;
+    }
 }

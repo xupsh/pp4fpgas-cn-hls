@@ -13,7 +13,6 @@ typedef struct rgb_pixel {
 
 #define MAX_WIDTH 32
 
-
 rgb_pixel filter(rgb_pixel window[3][3]) {
 
 	unsigned char h[3][3] = {{1, 2, 1}, {2, 4, 2}, {1, 2, 1}};
@@ -43,16 +42,13 @@ rgb_pixel filter(rgb_pixel window[3][3]) {
 	output.B = b / 16;
 
 	return output;
-
 }
 
 void vs(rgb_pixel pixel_in[MAX_HEIGHT][MAX_WIDTH],
-
-					rgb_pixel pixel_out[MAX_HEIGHT][MAX_WIDTH]) {
-#pragma HLS INTERFACE ap_ctrl_none port=return
-#pragma HLS INTERFACE axis register both port=pixel_in
-#pragma HLS INTERFACE axis register both port=pixel_out
-
+		rgb_pixel pixel_out[MAX_HEIGHT][MAX_WIDTH]) {
+    #pragma HLS INTERFACE ap_ctrl_none port=return
+    #pragma HLS INTERFACE axis register both port=pixel_in
+    #pragma HLS INTERFACE axis register both port=pixel_out
 
 	rgb_pixel tempin[MAX_HEIGHT][MAX_WIDTH], tempout[MAX_HEIGHT][MAX_WIDTH];
 
@@ -66,9 +62,9 @@ void vs(rgb_pixel pixel_in[MAX_HEIGHT][MAX_WIDTH],
 
 	rgb_pixel window[3][3];
 
-for (int row = 0; row < MAX_HEIGHT; row++) {
+    for (int row = 0; row < MAX_HEIGHT; row++) {
 
-	for (int col = 0; col < MAX_WIDTH; col++) {
+	    for (int col = 0; col < MAX_WIDTH; col++) {
 
 			for (int i = 0; i < 3; i++) {
 
@@ -91,9 +87,7 @@ for (int row = 0; row < MAX_HEIGHT; row++) {
 						window[i][j].R = tempin[wi][wj].R;
 						window[i][j].G = tempin[wi][wj].G;
 						window[i][j].B = tempin[wi][wj].B;
-
 				}
-
 			}
 
 			if (row == 0 || col == 0 || row == (MAX_HEIGHT - 1) || col == (MAX_WIDTH - 1)) {
@@ -103,13 +97,10 @@ for (int row = 0; row < MAX_HEIGHT; row++) {
 				tempout[row][col].G = 0;
 
 				tempout[row][col].B = 0;
-
 			} else
 
 				tempout[row][col] = filter(window);
-
 		}
-
 	}
 
 	for(int i = 0; i<MAX_HEIGHT; i++){
@@ -119,6 +110,5 @@ for (int row = 0; row < MAX_HEIGHT; row++) {
 			pixel_out[i][j].B = tempout[i][j].B;
 		}
 	}
-
 }
 
