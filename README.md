@@ -8,7 +8,7 @@ HLS Project for pp4fpgas-cn running on Pynq-Z1/Z2 board
 
 ```console
 sudo pip3 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
-sudo pip3 install --upgrade git+https://github.com/CongHong/pp4fpgas-cn-hls.git
+//sudo pip3 install --upgrade git+https://github.com/CongHong/pp4fpgas-cn-hls.git
 ```
 > pynq <= v2.2
 
