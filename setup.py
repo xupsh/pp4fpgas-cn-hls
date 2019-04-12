@@ -53,7 +53,7 @@ def copy_notebooks():
             copy_tree(dst_folder, os.path.join("backup", dst_folder))
             shutil.rmtree(dst_folder)
         copy_tree(os.path.join(board_folder, 'notebooks'), dst_folder)
-        copy_tree(board_folder,os.path.join('/usr/local/lib',os.environ['PYNQ_PYTHON'],'dist-packages/pynq/overlays'))
+        copy_tree(board_folder,os.path.join('/usr/local/lib',os.environ['PYNQ_PYTHON'],'dist-packages/pynq/overlays/'))
 
 
 check_env()
