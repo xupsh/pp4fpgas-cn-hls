@@ -35,8 +35,13 @@ sudo pip3.6 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 ├── hw
 │   ├── build_ip.tcl
 │   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
-│   	├── *_wrapper.v
-│   	└── build_*.tcl
+│   │ ├── *_wrapper.v
+│   │ └── build_*.tcl
+│   └── ip
+│     └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
+│       └── *.cpp
+│       └── *.h
+│
 ├── pp4fpgas
 │   ├── __init__.py
 │   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
