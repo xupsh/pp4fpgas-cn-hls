@@ -48,14 +48,17 @@ sudo pip3.6 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 ```
 
 ## Hardware Design Rebuilt
-> version required: vivado 2017.4
+> version required: vivado 2018.3
 > make sure you already have these board files in your vivado
 > https://github.com/xupsh/pynq-supported-board-file
+> take CORDIC on Pynq-Z2 design as an example  
 
 - Open your vivado gui and find `tcl console`
 - `cd` the path you git clone
 - `cd` hw directory
 - `source build_ip.tcl`
+- `cd <the path you git clone>/boards/Pynq-Z2/cordic/`  
+- `source cordic.tcl`  
 
 ![tcl console](./boards/Pynq-Z1/notebooks/data/tclconsole.png)
 
