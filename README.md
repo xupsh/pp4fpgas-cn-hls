@@ -35,8 +35,13 @@ sudo pip3.6 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 ├── hw
 │   ├── build_ip.tcl
 │   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
-│   	├── *_wrapper.v
-│   	└── build_*.tcl
+│   │ ├── *_wrapper.v
+│   │ └── build_*.tcl
+│   └── ip
+│     └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
+│       └── *.cpp
+│       └── *.h
+│
 ├── pp4fpgas
 │   ├── __init__.py
 │   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
@@ -48,14 +53,17 @@ sudo pip3.6 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 ```
 
 ## Hardware Design Rebuilt
-> version required: vivado 2017.4
-> make sure you already have these board files in your vivado
-> https://github.com/xupsh/pynq-supported-board-file
+> version required: vivado 2018.3  
+> make sure you already have these board files in your vivado  
+> https://github.com/xupsh/pynq-supported-board-file  
+> take CORDIC on Pynq-Z2 as an example design 
 
 - Open your vivado gui and find `tcl console`
 - `cd` the path you git clone
 - `cd` hw directory
 - `source build_ip.tcl`
+- `cd <the path you git clone>/boards/Pynq-Z2/cordic/`  
+- `source cordic.tcl`  
 
 ![tcl console](./boards/Pynq-Z1/notebooks/data/tclconsole.png)
 
