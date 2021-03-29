@@ -1,5 +1,5 @@
 # pp4fpgas-cn-hls
-HLS Project for pp4fpgas-cn running on Pynq-Z1/Z2 board
+HLS Project for pp4fpgas-cn running on PynqZ2 board
 
 ## Get Started
 
