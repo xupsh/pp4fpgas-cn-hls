@@ -42,6 +42,8 @@ sudo pip3.6 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 │   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
 │   	├── __init__.py
 │   	└── *_overlay.py
+├── projects
+│   └── CORDIC/Discrete_Fourier_Transform/Fast_Fourier_Transform/FIR_Filter_Design/Phase_Detector/OFDM_Receiver/FM_Demodulator
 ├── LICENSE
 ├── README.md
 └── setup.py
