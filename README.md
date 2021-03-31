@@ -1,5 +1,6 @@
 # pp4fpgas-cn-hls
-HLS Project for pp4fpgas-cn running on PynqZ2 board
+Examples codes and HLS Projects for pp4fpgas-cn running on PynqZ2 board
+You can read examples on [https://xupsh.gitbook.io/pp4fpgas-cn/](https://xupsh.gitbook.io/pp4fpgas-cn/) and project requirements on [https://pp4fpgas.readthedocs.io/en/latest/index.html](https://pp4fpgas.readthedocs.io/en/latest/index.html)
 
 ## Get Started
 
