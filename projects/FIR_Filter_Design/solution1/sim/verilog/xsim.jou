@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sat Jan 16 19:35:24 2021
+# Process ID: 17768
+# Current directory: E:/xilinx/framework/fir1/solution1/sim/verilog
+# Command line: xsim.exe -mode tcl -source {xsim.dir/fir/xsim_script.tcl}
+# Log file: E:/xilinx/framework/fir1/solution1/sim/verilog/xsim.log
+# Journal file: E:/xilinx/framework/fir1/solution1/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/fir/xsim_script.tcl
+source fir.tcl

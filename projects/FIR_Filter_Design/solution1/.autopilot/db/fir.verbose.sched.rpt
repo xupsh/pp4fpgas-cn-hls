@@ -1,0 +1,175 @@
+
+
+================================================================
+== Vivado HLS Report for 'fir'
+================================================================
+* Date:           Sat Jan 16 19:33:23 2021
+
+* Version:        2020.1 (Build 2897737 on Wed May 27 20:21:37 MDT 2020)
+* Project:        fir1
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.510 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |        3|        3| 30.000 ns | 30.000 ns |    3|    3|   none  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.00>
+ST_1 : Operation 5 [1/1] (1.00ns)   --->   "%x_V_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %x_V)" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:16]   --->   Operation 5 'read' 'x_V_read' <Predicate = true> <Delay = 1.00> <Core = "s_axilite">   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+
+State 2 <SV = 1> <Delay = 8.51>
+ST_2 : Operation 6 [1/1] (0.00ns)   --->   "%shift_reg_V_4_load = load i32* @shift_reg_V_4, align 16" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 6 'load' 'shift_reg_V_4_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%shift_reg_V_3_load = load i32* @shift_reg_V_3, align 4" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 7 'load' 'shift_reg_V_3_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "store i32 %shift_reg_V_3_load, i32* @shift_reg_V_4, align 16" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 8 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%shift_reg_V_2_load = load i32* @shift_reg_V_2, align 8" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 9 'load' 'shift_reg_V_2_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "store i32 %shift_reg_V_2_load, i32* @shift_reg_V_3, align 4" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 10 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%shift_reg_V_1_load = load i32* @shift_reg_V_1, align 4" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 11 'load' 'shift_reg_V_1_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "store i32 %shift_reg_V_1_load, i32* @shift_reg_V_2, align 8" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 12 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%shift_reg_V_0_load = load i32* @shift_reg_V_0, align 16" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 13 'load' 'shift_reg_V_0_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "store i32 %shift_reg_V_0_load, i32* @shift_reg_V_1, align 4" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 14 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "store i32 %x_V_read, i32* @shift_reg_V_0, align 16" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:34]   --->   Operation 15 'store' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (8.51ns)   --->   "%mul_ln700_3 = mul i32 %shift_reg_V_4_load, 500" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 16 'mul' 'mul_ln700_3' <Predicate = true> <Delay = 8.51> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 17 [1/1] (8.51ns)   --->   "%mul_ln700_4 = mul i32 %shift_reg_V_3_load, 313" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 17 'mul' 'mul_ln700_4' <Predicate = true> <Delay = 8.51> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (8.51ns)   --->   "%mul_ln700_5 = mul i32 %shift_reg_V_1_load, -91" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 18 'mul' 'mul_ln700_5' <Predicate = true> <Delay = 8.51> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 19 [1/1] (8.51ns)   --->   "%mul_ln700_6 = mul i32 %x_V_read, 53" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 19 'mul' 'mul_ln700_6' <Predicate = true> <Delay = 8.51> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 3 <SV = 2> <Delay = 8.51>
+ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%shift_reg_V_9_load = load i32* @shift_reg_V_9, align 4" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 20 'load' 'shift_reg_V_9_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%shift_reg_V_8_load = load i32* @shift_reg_V_8, align 16" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 21 'load' 'shift_reg_V_8_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "store i32 %shift_reg_V_8_load, i32* @shift_reg_V_9, align 4" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 22 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%shift_reg_V_7_load = load i32* @shift_reg_V_7, align 4" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 23 'load' 'shift_reg_V_7_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "store i32 %shift_reg_V_7_load, i32* @shift_reg_V_8, align 16" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 24 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%shift_reg_V_6_load = load i32* @shift_reg_V_6, align 8" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 25 'load' 'shift_reg_V_6_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "store i32 %shift_reg_V_6_load, i32* @shift_reg_V_7, align 4" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 26 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%shift_reg_V_5_load = load i32* @shift_reg_V_5, align 4" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 27 'load' 'shift_reg_V_5_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "store i32 %shift_reg_V_5_load, i32* @shift_reg_V_6, align 8" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 28 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "store i32 %shift_reg_V_4_load, i32* @shift_reg_V_5, align 4" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32]   --->   Operation 29 'store' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 30 [1/1] (8.51ns)   --->   "%mul_ln700 = mul i32 %shift_reg_V_9_load, 53" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 30 'mul' 'mul_ln700' <Predicate = true> <Delay = 8.51> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 31 [1/1] (8.51ns)   --->   "%mul_ln700_1 = mul i32 %shift_reg_V_7_load, -91" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 31 'mul' 'mul_ln700_1' <Predicate = true> <Delay = 8.51> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 32 [1/1] (8.51ns)   --->   "%mul_ln700_2 = mul i32 %shift_reg_V_5_load, 313" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 32 'mul' 'mul_ln700_2' <Predicate = true> <Delay = 8.51> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 8.51> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 33 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln700_2 = add i32 %mul_ln700_3, %mul_ln700_4" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 33 'add' 'add_ln700_2' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 34 [1/1] (2.55ns)   --->   "%add_ln700_3 = add i32 %mul_ln700_5, %mul_ln700_6" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 34 'add' 'add_ln700_3' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 35 [1/1] (4.37ns) (root node of TernaryAdder)   --->   "%add_ln700_4 = add i32 %add_ln700_3, %add_ln700_2" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 35 'add' 'add_ln700_4' <Predicate = true> <Delay = 4.37> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+
+State 4 <SV = 3> <Delay = 7.92>
+ST_4 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %y_V), !map !32"   --->   Operation 36 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %x_V), !map !38"   --->   Operation 37 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([4 x i8]* @fir_str) nounwind"   --->   Operation 38 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [9 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:20]   --->   Operation 39 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %y_V, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:21]   --->   Operation 40 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %x_V, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:22]   --->   Operation 41 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 42 [1/1] (2.55ns)   --->   "%add_ln700 = add i32 %mul_ln700_1, %mul_ln700_2" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 42 'add' 'add_ln700' <Predicate = true> <Delay = 2.55> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 43 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln700_1 = add i32 %add_ln700, %mul_ln700" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 43 'add' 'add_ln700_1' <Predicate = true> <Delay = 0.00> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 44 [1/1] (4.37ns) (root node of TernaryAdder)   --->   "%add_ln700_5 = add i32 %add_ln700_4, %add_ln700_1" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41]   --->   Operation 44 'add' 'add_ln700_5' <Predicate = true> <Delay = 4.37> <Core = "TAddSub">   --->   Core 83 'TAddSub' <Latency = 0> <II = 1> <Delay = 2.18> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 45 [1/1] (1.00ns)   --->   "call void @_ssdm_op_Write.s_axilite.i32P(i32* %y_V, i32 %add_ln700_5)" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:43]   --->   Operation 45 'write' <Predicate = true> <Delay = 1.00> <Core = "s_axilite">   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "ret void" [C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:44]   --->   Operation 46 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1ns
+The critical path consists of the following:
+	s_axi read on port 'x_V' (C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:16) [17]  (1 ns)
+
+ <State 2>: 8.51ns
+The critical path consists of the following:
+	'load' operation ('shift_reg_V_4_load', C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32) on static variable 'shift_reg_V_4' [30]  (0 ns)
+	'mul' operation ('mul_ln700_3', C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41) [44]  (8.51 ns)
+
+ <State 3>: 8.51ns
+The critical path consists of the following:
+	'load' operation ('shift_reg_V_9_load', C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:32) on static variable 'shift_reg_V_9' [21]  (0 ns)
+	'mul' operation ('mul_ln700', C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41) [41]  (8.51 ns)
+
+ <State 4>: 7.92ns
+The critical path consists of the following:
+	'add' operation ('add_ln700', C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41) [48]  (2.55 ns)
+	'add' operation ('add_ln700_1', C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41) [49]  (0 ns)
+	'add' operation ('add_ln700_5', C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:41) [53]  (4.37 ns)
+	s_axi write on port 'y_V' (C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp:43) [54]  (1 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

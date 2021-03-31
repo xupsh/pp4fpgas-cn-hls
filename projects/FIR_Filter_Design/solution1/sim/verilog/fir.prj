@@ -1,0 +1,6 @@
+sv work "glbl.v"
+sv xil_defaultlib "AESL_axi_slave_ap_start.v"
+sv xil_defaultlib "fir.autotb.v"
+sv xil_defaultlib "fir.v"
+sv xil_defaultlib "fir_ap_start_s_axi.v"
+

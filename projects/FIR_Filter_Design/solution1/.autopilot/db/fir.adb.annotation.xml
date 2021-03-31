@@ -1,0 +1,17 @@
+<annotationInfo>
+<annotationInfo>
+<item  id="41" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="mul_ln700" contextFuncName="fir" moduleName="fir" rtlName="mul_ln700_fu_186_p2" latency="0" BRAM="-1" DSP="2" FF="0" LUT="20" fileDirectory="E:\xilinx\framework"><\/item>
+<item  id="42" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="mul_ln700_1" contextFuncName="fir" moduleName="fir" rtlName="mul_ln700_1_fu_192_p2" latency="0" BRAM="-1" DSP="2" FF="0" LUT="20" fileDirectory="E:\xilinx\framework"><\/item>
+<item  id="43" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="mul_ln700_2" contextFuncName="fir" moduleName="fir" rtlName="mul_ln700_2_fu_198_p2" latency="0" BRAM="-1" DSP="2" FF="0" LUT="20" fileDirectory="E:\xilinx\framework"><\/item>
+<item  id="44" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="mul_ln700_3" contextFuncName="fir" moduleName="fir" rtlName="mul_ln700_3_fu_114_p2" latency="0" BRAM="-1" DSP="2" FF="0" LUT="20" fileDirectory="E:\xilinx\framework"><\/item>
+<item  id="45" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="mul_ln700_4" contextFuncName="fir" moduleName="fir" rtlName="mul_ln700_4_fu_120_p2" latency="0" BRAM="-1" DSP="2" FF="0" LUT="20" fileDirectory="E:\xilinx\framework"><\/item>
+<item  id="46" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="mul_ln700_5" contextFuncName="fir" moduleName="fir" rtlName="mul_ln700_5_fu_126_p2" latency="0" BRAM="-1" DSP="2" FF="0" LUT="20" fileDirectory="E:\xilinx\framework"><\/item>
+<item  id="47" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="mul_ln700_6" contextFuncName="fir" moduleName="fir" rtlName="mul_ln700_6_fu_132_p2" latency="0" BRAM="-1" DSP="2" FF="0" LUT="20" fileDirectory="E:\xilinx\framework"><\/item>
+<item  id="48" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="add_ln700" contextFuncName="fir" moduleName="fir" rtlName="add_ln700_fu_218_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="E:\xilinx\framework"><\/item>
+<item  id="49" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="add_ln700_1" contextFuncName="fir" moduleName="fir" rtlName="add_ln700_1_fu_222_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="32" fileDirectory="E:\xilinx\framework"><\/item>
+<item  id="50" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="add_ln700_2" contextFuncName="fir" moduleName="fir" rtlName="add_ln700_2_fu_204_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="32" fileDirectory="E:\xilinx\framework"><\/item>
+<item  id="51" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="add_ln700_3" contextFuncName="fir" moduleName="fir" rtlName="add_ln700_3_fu_208_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="E:\xilinx\framework"><\/item>
+<item  id="52" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="add_ln700_4" contextFuncName="fir" moduleName="fir" rtlName="add_ln700_4_fu_212_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="32" fileDirectory="E:\xilinx\framework"><\/item>
+<item  id="53" filename="C:/Users/znxnt/Desktop/fir_1/fir11/fir.cpp" linenumber="41" name="add_ln700_5" contextFuncName="fir" moduleName="fir" rtlName="y_V" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="32" fileDirectory="E:\xilinx\framework"><\/item>
+<\/annotationInfo>
+</annotationInfo>

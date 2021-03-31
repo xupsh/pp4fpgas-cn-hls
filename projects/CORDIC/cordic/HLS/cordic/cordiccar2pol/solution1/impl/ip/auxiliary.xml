@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="cordiccart2pol" xd:componentRef="cordiccart2pol" xd:initiationInterval="259" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="ap_ctrl" xd:busTypeRef="acc_handshake" xd:type="acc_handshake"/>
+  <xd:arg xd:name="x" xd:originalName="x" xd:direction="in" xd:interfaceRef="x" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="y" xd:originalName="y" xd:direction="in" xd:interfaceRef="y" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(r)" xd:originalName="r" xd:direction="out" xd:interfaceRef="r" xd:busTypeRef="register" xd:handshakeRef="ap_vld" xd:dataWidth="32" xd:firstOut="18"/>
+  <xd:arg xd:name="*(theta)" xd:originalName="theta" xd:direction="out" xd:interfaceRef="theta" xd:busTypeRef="register" xd:handshakeRef="ap_vld" xd:dataWidth="32" xd:firstOut="9"/>
+  <xd:latencyEstimates xd:best-case="258" xd:worst-case="258" xd:average-case="258"/>
+  <xd:resourceEstimates xd:LUT="4003" xd:FF="2132" xd:BRAM="0" xd:DSP="13"/>
+</xd:acceleratorMap>

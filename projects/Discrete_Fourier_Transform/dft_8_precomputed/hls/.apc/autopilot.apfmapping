@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="dft.h" path="E:\xilinx\CS239\DFT\dft_8_precomputed\dft.h"/>
+    <originFiles name="dft.cpp" path="E:\xilinx\CS239\DFT\dft_8_precomputed\dft.cpp"/>
+    <originFiles name="coefficients8.h" path="E:\xilinx\CS239\DFT\dft_8_precomputed\coefficients8.h"/>
+  </source>
+  <testbench>
+    <originFiles name="out.gold.dat" path="E:\xilinx\CS239\DFT\dft_8_precomputed\out.gold.dat"/>
+    <originFiles name="dft_test.cpp" path="E:\xilinx\CS239\DFT\dft_8_precomputed\dft_test.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

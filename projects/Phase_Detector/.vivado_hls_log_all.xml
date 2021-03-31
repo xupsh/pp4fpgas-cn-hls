@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T10:34:57.916+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T10:34:57.910+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T10:34:08.826+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T10:34:08.814+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T03:06:51.209+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T03:06:51.205+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:37:58.378+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:37:58.374+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:37:31.275+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:37:31.271+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:36:35.635+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:36:35.630+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:35:51.272+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:35:51.268+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:34:48.952+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:34:48.948+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:33:38.765+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:33:38.760+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:32:12.378+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:32:12.374+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:29:59.159+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:29:59.155+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:28:55.977+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:28:55.972+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="phase322" solutionName="solution1" date="2021-03-22T02:27:59.550+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="phase322" solutionName="solution1" date="2021-03-22T02:27:00.748+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:20:11.379+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:20:11.375+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:09:32.289+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:09:32.284+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:08:41.442+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:08:41.437+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T02:07:27.238+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T02:07:27.233+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T01:55:03.400+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T01:55:03.395+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T01:52:54.414+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T01:52:54.408+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: nonzero return value." projectName="phase322" solutionName="solution1" date="2021-03-22T01:38:28.775+0800"/>
+        <logs message="@E Simulation failed: Function 'main' returns nonzero value '1'." projectName="phase322" solutionName="solution1" date="2021-03-22T01:38:28.770+0800"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="phase322" solutionName="solution1" date="2021-03-22T01:06:41.664+0800"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="phase322" solutionName="solution1" date="2021-03-22T01:06:41.659+0800"/>
+        <logs message="ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s)." projectName="phase322" solutionName="solution1" date="2021-03-22T01:04:36.053+0800"/>
+      </csimLog>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>
