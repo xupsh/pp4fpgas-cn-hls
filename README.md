@@ -8,7 +8,7 @@ Project requirements: [https://pp4fpgas.readthedocs.io/en/latest/index.html](htt
 ## Get Started
 
 - Install using `pip`
-> pynq >= v2.3
+> pynq v2.6
 
 ```console
 sudo pip3 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
@@ -17,11 +17,6 @@ sudo pip3 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 or copy all files to your pynq board and
 ```console
 sudo pip3 install -e .
-```
-> pynq <= v2.2
-
-```console
-sudo pip3.6 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 ```
 
 - Open your browser with `<pynq_ip>:9090` and type in xilinx as password.
@@ -54,7 +49,7 @@ sudo pip3.6 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 ```
 
 ## Hardware Design Rebuilt
-> version required: vivado 2017.4
+> suggested version: vivado 2020.2
 > make sure you already have these board files in your vivado
 > https://github.com/xupsh/pynq-supported-board-file
 
@@ -62,8 +57,6 @@ sudo pip3.6 install --upgrade git+https://github.com/xupsh/pp4fpgas-cn-hls.git
 - `cd` the path you git clone
 - `cd` hw directory
 - `source build_ip.tcl`
-
-![tcl console](./boards/Pynq-Z1/notebooks/data/tclconsole.png)
 
 ## Based on
 - PYNQ : [https://github.com/Xilinx/PYNQ](https://github.com/Xilinx/PYNQ)
