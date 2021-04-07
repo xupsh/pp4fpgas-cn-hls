@@ -1,9 +1,13 @@
 # pp4fpgas-cn-hls
-Examples codes and HLS Projects for pp4fpgas-cn running on PynqZ2 board
+Examples codes and their HLS frameworks for pp4fpgas-cn running on PynqZ2 board.
+
+Follow the steps in "Get Started" to get the verification via Jupyter Notebook.
+
+If you want to do the HLS by yourself, you can use the frameworks in the HLS frameworks fold and try different optimizations.
 
 Read examples: [https://xupsh.gitbook.io/pp4fpgas-cn/](https://xupsh.gitbook.io/pp4fpgas-cn/)
 
-Project requirements: [https://pp4fpgas.readthedocs.io/en/latest/index.html](https://pp4fpgas.readthedocs.io/en/latest/index.html)
+HLS frameworks: [https://pp4fpgas.readthedocs.io/en/latest/index.html](https://pp4fpgas.readthedocs.io/en/latest/index.html)
 
 ## Get Started
 
@@ -41,8 +45,8 @@ sudo pip3 install -e .
 │   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
 │   	├── __init__.py
 │   	└── *_overlay.py
-├── projects
-│   └── CORDIC/Discrete_Fourier_Transform/Fast_Fourier_Transform/FIR_Filter_Design/Phase_Detector/OFDM_Receiver/FM_Demodulator
+├── hls_framework
+│   └── DFT/FFT/OFDM/cordic/fir/mono_fm/phase_detector
 ├── LICENSE
 ├── README.md
 └── setup.py
