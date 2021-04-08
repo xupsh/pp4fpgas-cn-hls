@@ -30,7 +30,7 @@ sudo pip3 install -e .
 ```
 .
 ├── boards
-│   └── Pynq-Z1/Pynq-Z2
+│   └── Pynq-Z2
 │   	├── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
 │   	└── notebooks/
 ├── hw
