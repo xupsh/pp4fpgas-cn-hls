@@ -43,7 +43,7 @@ sudo pip3 install -e .
 │   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
 │   	├── __init__.py
 │   	└── *_overlay.py
-├── hls_framework
+├── PYNQ_projects
 │   └── DFT/FFT/OFDM/cordic/fir/mono_fm/phase_detector
 ├── LICENSE
 ├── README.md
