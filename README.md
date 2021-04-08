@@ -5,7 +5,7 @@ Follow the steps in "Get Started" to get the verification via Jupyter Notebook. 
 
 Read examples: [https://xupsh.gitbook.io/pp4fpgas-cn/](https://xupsh.gitbook.io/pp4fpgas-cn/)
 
-HLS frameworks: [https://pp4fpgas.readthedocs.io/en/latest/index.html](https://pp4fpgas.readthedocs.io/en/latest/index.html)
+PYNQ projects: [https://pp4fpgas.readthedocs.io/en/latest/index.html](https://pp4fpgas.readthedocs.io/en/latest/index.html)
 
 ## Get Started
 
