@@ -33,16 +33,16 @@ sudo pip3 install -e .
 .
 ├── boards
 │   └── Pynq-Z2
-│   	├── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
+│   	├── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs/mono_fm/OFDM/phase_detector
 │   	└── notebooks/
 ├── hw
 │   ├── build_ip.tcl
-│   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
+│   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs/mono_fm/OFDM/phase_detector
 │   	├── *_wrapper.v
 │   	└── build_*.tcl
 ├── pp4fpgas
 │   ├── __init__.py
-│   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs
+│   └── cordic/dft/fft/fir/histogram/huffman/matrixm/sort/spmv/sum/vs/mono_fm/OFDM/phase_detector
 │   	├── __init__.py
 │   	└── *_overlay.py
 ├── PYNQ_projects
