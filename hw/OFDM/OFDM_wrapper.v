@@ -1,15 +1,15 @@
-//Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+//Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-//Date        : Mon Aug 20 21:07:03 2018
-//Host        : XSHWENCHEN20 running 64-bit major release  (build 9200)
-//Command     : generate_target cordic_wrapper.bd
-//Design      : cordic_wrapper
+//Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+//Date        : Fri Apr  9 13:14:04 2021
+//Host        : BF-202004201106 running 64-bit major release  (build 9200)
+//Command     : generate_target design_1_wrapper.bd
+//Design      : design_1_wrapper
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-module cordic_wrapper
+module design_1_wrapper
    (DDR_addr,
     DDR_ba,
     DDR_cas_n,
@@ -75,7 +75,7 @@ module cordic_wrapper
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
 
-  cordic cordic_i
+  design_1 design_1_i
        (.DDR_addr(DDR_addr),
         .DDR_ba(DDR_ba),
         .DDR_cas_n(DDR_cas_n),

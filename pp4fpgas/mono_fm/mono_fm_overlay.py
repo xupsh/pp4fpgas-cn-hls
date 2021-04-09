@@ -11,7 +11,7 @@ class CordicOverlay(Overlay):
     def __init__(self, bitfile="", **kwargs):
         bitfile_abs = os.path.abspath(bitfile)
         bitfile_overlay_abs = os.path.join(REAL_PATH, bitfile)
-        bitfile_default = os.path.join(REAL_PATH, "cordic.bit")
+        bitfile_default = os.path.join(REAL_PATH, "mono_fm.bit")
 
         if os.path.isfile(bitfile):
             self.bitfile_name = bitfile_abs

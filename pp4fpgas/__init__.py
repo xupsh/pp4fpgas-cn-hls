@@ -10,3 +10,6 @@ from .sort.sort_overlay import SortOverlay
 from .spmv.spmv_overlay import SpmvOverlay
 from .sum.sum_overlay import SumOverlay
 from .vs.vs_overlay import VsOverlay
+from .phase_detector.phase_detector_overlay import DetectorOverlay
+from .OFDM.OFDM_overlay import OfdmOverlay
+from .mono_fm.mono_fm_overlay import MonofmOverlay
