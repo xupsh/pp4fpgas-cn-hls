@@ -3,6 +3,8 @@ Examples codes and their HLS frameworks for pp4fpgas-cn running on PynqZ2 board.
 
 Follow the steps in "Get Started" to get the verification via Jupyter Notebook. If you want to do the HLS by yourself, you can use the frameworks in the PYNQ projects folder and try different optimizations.
 
+Jupyter Notebooks are in .boards/notebokes folder and c++ codes are in ./hw/ip folder.
+
 Read examples: [https://xupsh.gitbook.io/pp4fpgas-cn/](https://xupsh.gitbook.io/pp4fpgas-cn/)
 
 PYNQ projects: [https://pp4fpgas.readthedocs.io/en/latest/index.html](https://pp4fpgas.readthedocs.io/en/latest/index.html)
