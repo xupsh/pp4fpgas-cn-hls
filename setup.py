@@ -75,5 +75,5 @@ setup(
     package_data={
         '': data_files,
     },
-    description="HLS tutorials using pynq on PYNQ-Z1 and PYNQ-Z2 boards"
+    description="HLS tutorials using pynq on PYNQ-Z2 boards"
 )
