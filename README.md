@@ -1,5 +1,5 @@
 # pp4fpgas-cn-hls
-This project is from the book Parallel Programming for FPGAs, their website is [https://github.com/KastnerRG/pp4fpgas](https://github.com/KastnerRG/pp4fpgas)
+This project is from the book Parallel Programming for FPGAs: [https://github.com/KastnerRG/pp4fpgas](https://github.com/KastnerRG/pp4fpgas)
 
 Examples codes and their HLS frameworks for pp4fpgas-cn running on PynqZ2 board.
 
