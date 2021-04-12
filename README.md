@@ -1,4 +1,6 @@
 # pp4fpgas-cn-hls
+This project is from the book Parallel Programming for FPGAs, their website is [https://github.com/KastnerRG/pp4fpgas](https://github.com/KastnerRG/pp4fpgas)
+
 Examples codes and their HLS frameworks for pp4fpgas-cn running on PynqZ2 board.
 
 Follow the steps in "Get Started" to get the verification via Jupyter Notebook. If you want to do the HLS by yourself, you can use the frameworks in the PYNQ projects folder and try different optimizations.
