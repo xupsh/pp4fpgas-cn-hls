@@ -13,7 +13,7 @@ for line in lines:
         if i == "+":
             out.write(" ")
         elif i == "-":
-            out.write(" ")
+            out.write(" -")
         elif i == "(":
             i = i
         elif i == ")":
@@ -22,7 +22,7 @@ for line in lines:
             i = i
         else:
             out.write(str(i))
-    out.write("\n")
+    #out.write("\n")
 
     #print(line)
 

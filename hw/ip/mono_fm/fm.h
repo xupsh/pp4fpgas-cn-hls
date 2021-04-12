@@ -10,11 +10,18 @@ typedef int	coef_t;
 typedef int	data_t;
 typedef int	acc_t;
 
-void linear_filter(float *b, __complex__ double *x, int fs);
+# define SIZE 20000
 
-void downsample_impl(__complex__ double *x, int M, __complex__ double *z);
+void linear_filterc(float *b, float *xr, float *xi, int fs);
 
-void discrim_impl(__complex__ double *x, int fs);
+void linear_filter(float *b, float *x, int fs);
 
-void mono_FM_impl(__complex__ double *x, int fs, __complex__ double *z_out);
+void linear_filter2(float *b, float *x, int fs);
 
+void downsample_implc(float *xr, float *xi, int M, int fs, float *zr, float *zi);
+
+void downsample_impl(float *x, int M, int fs, float *z);
+
+void discrim_impl(float *xr, float *xi, int fs, float *xx);
+
+void mono_FM_impl(float *xr, float *xi, int fs, float *z_out);

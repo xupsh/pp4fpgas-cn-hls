@@ -9,17 +9,49 @@
 
 using namespace std;
 
-void linear_filter(float *b, __complex__ double *x, int fs)
+void linear_filterc(float *b, float *xr, float *xi, int fs)
 {
-	__complex__ double buff[64];
+	float buffr[64] = {0};
+#pragma HLS ARRAY_PARTITION variable=buffr block factor=8 dim=1
+	float buffi[64] = {0};
+#pragma HLS ARRAY_PARTITION variable=buffi block factor=8 dim=1
 	for (int i=0; i<fs; i++)
 	{
+#pragma HLS PIPELINE
+#pragma HLS LOOP_TRIPCOUNT min=20000 max=20000
+		for (int j=0; j<63; j++)
+		{
+			buffr[63-j] = buffr[62-j];
+			buffi[63-j] = buffi[62-j];
+		}
+		buffr[0] = xr[i];
+		buffi[0] = xi[i];
+		float tempr = 0;
+		float tempi = 0;
+		for (int j=0; j<64; j++)
+		{
+			tempr += buffr[j] *b[j];
+			tempi += buffi[j] *b[j];
+		}
+		xr[i] = tempr;
+		xi[i] = tempi;
+	}
+}
+
+void linear_filter(float *b, float *x, int fs)
+{
+	float buff[64] = {0};
+#pragma HLS ARRAY_PARTITION variable=buff block factor=8 dim=1
+	for (int i=0; i<fs; i++)
+	{
+#pragma HLS PIPELINE
+#pragma HLS LOOP_TRIPCOUNT min=2000 max=2000
 		for (int j=0; j<63; j++)
 		{
 			buff[63-j] = buff[62-j];
 		}
 		buff[0] = x[i];
-		__complex__ double temp = 0;
+		float temp = 0;
 		for (int j=0; j<64; j++)
 		{
 			temp += buff[j] *b[j];
@@ -28,38 +60,71 @@ void linear_filter(float *b, __complex__ double *x, int fs)
 	}
 }
 
-void downsample_impl(__complex__ double *x, int M, __complex__ double *z)
+void linear_filter2(float *b, float *x, int fs)
 {
-	for (int i=0; i<(2400000/M); i++)
+	float buff[2] = {0};
+#pragma HLS ARRAY_PARTITION variable=buff complete dim=1
+	for (int i=0; i<fs; i++)
 	{
+#pragma HLS PIPELINE
+#pragma HLS LOOP_TRIPCOUNT min=2000 max=2000
+		buff[1] = buff[0];
+		buff[0] = x[i];
+		float temp = 0;
+		for (int j=0; j<2; j++)
+		{
+			temp += buff[j] *b[j];
+		}
+		x[i] = temp;
+	}
+}
+
+void downsample_implc(float *xr, float *xi, int M, int fs, float *zr, float *zi)
+{
+	for (int i=0; i<(fs/M); i++)
+	{
+#pragma HLS PIPELINE
+#pragma HLS LOOP_TRIPCOUNT min=2000 max=2000
+		zr[i] = xr[M*i];
+		zi[i] = xi[M*i];
+	}
+}
+
+void downsample_impl(float *x, int M, int fs, float *z)
+{
+	for (int i=0; i<(fs/M); i++)
+	{
+#pragma HLS LOOP_TRIPCOUNT min=400 max=400
 		z[i] = x[M*i];
 	}
 }
 
-void discrim_impl(__complex__ double *x, int fs)
+void discrim_impl(float *xr, float *xi, float *xx)
 {
 	float b[2] = {1,-1};
-	__complex__ double xr[fs];
-	__complex__ double xi[fs];
-	__complex__ double xro[fs];
-	__complex__ double xio[fs];
-	for (int i = 0; i<fs; i++)
+	float xro[SIZE/10];
+	float xio[SIZE/10];
+	for (int i = 0; i<SIZE/10; i++)
 	{
-		xr[i] = __real__ x[i];
-		xi[i] = __imag__ x[i];
-		xro[i] = __real__ x[i];
-		xio[i] = __imag__ x[i];
+#pragma HLS PIPELINE
+		xro[i] = xr[i];
+		xio[i] = xi[i];
 	}
-	linear_filter(b, xr, fs); 
-	linear_filter(b, xi, fs);
-	for (int i = 0; i<fs; i++)
+	linear_filter2(b, xr, SIZE/10);
+	linear_filter2(b, xi, SIZE/10);
+	for (int i = 0; i<SIZE/10; i++)
 	{
-		x[i] = (xro[i] * xi[i] - xio[i] * xr[i])/(xro[i]*xro[i]+xio[i]*xio[i]);
+#pragma HLS PIPELINE
+		xx[i] = (xro[i] * xi[i] - xio[i] * xr[i])/(xro[i]*xro[i]-xio[i]*xio[i]);
 	}
 }
 
-void mono_FM_impl(__complex__ double *x, int fs, __complex__ double *z_out)
+void mono_FM_impl(float *xr, float *xi, int fs, float *z_out)
 {
+#pragma HLS INTERFACE axis depth=400 port=z_out
+#pragma HLS INTERFACE axis depth=20000 port=xi
+#pragma HLS INTERFACE axis depth=20000 port=xr
+#pragma HLS INTERFACE s_axilite port=fs bundle=CTRL
 	float b[64] = {-0.00057098, -0.00022201,  0.0002486 ,  0.00079229,  0.00129681,
         			0.00157633,  0.00141003,  0.00063018, -0.00076622, -0.00252994,
        				-0.00414857, -0.0049459 , -0.00428825, -0.00184781,  0.00216364,
@@ -73,15 +138,27 @@ void mono_FM_impl(__complex__ double *x, int fs, __complex__ double *z_out)
        				-0.00184781, -0.00428825, -0.0049459 , -0.00414857, -0.00252994,
        				-0.00076622,  0.00063018,  0.00141003,  0.00157633,  0.00129681,
         			0.00079229,  0.0002486 , -0.00022201, -0.00057098};
-    
-    linear_filter(b, x, fs);
 
-	__complex__ double z[fs/10];
+	float lwxr[SIZE];
+	float lwxi[SIZE];
+	float swz[SIZE/50];
 
-	downsample_impl(x,10,z);
+	for (int i = 0; i < SIZE; i++)
+	{
+		lwxr[i] = xr[i];
+		lwxi[i] = xi[i];
+	}
 
-    discrim_impl(z, fs/10);
-    
+	float zr[SIZE/10];
+	float zi[SIZE/10];
+	float zz[SIZE/10];
+
+    linear_filterc(b, lwxr, lwxi, fs);
+
+	downsample_implc(lwxr, lwxi, 10, fs, zr, zi);
+
+    discrim_impl(zr, zi, zz);
+
     float bb[64] = {-0.00036654, -0.00013417,  0.00015024,  0.00050861,  0.0009492 ,
         			0.00145387,  0.00196926,  0.0024045 ,  0.00263739,  0.00252959,
         			0.00194958,  0.00080089, -0.00094856, -0.00324077, -0.00591034,
@@ -96,8 +173,13 @@ void mono_FM_impl(__complex__ double *x, int fs, __complex__ double *z_out)
         			0.00263739,  0.0024045 ,  0.00196926,  0.00145387,  0.0009492 ,
         			0.00050861,  0.00015024, -0.00013417, -0.00036654};
     
-    linear_filter(bb,z,fs/10);
+    linear_filter(bb, zz, fs/10);
     
-    downsample_impl(z,5,z_out);
+    downsample_impl(zz, 5, fs/10, swz);
+
+    for (int i = 0; i < SIZE/50; i++)
+    {
+   		z_out[i] = swz[i];
+   	}
 
 }
